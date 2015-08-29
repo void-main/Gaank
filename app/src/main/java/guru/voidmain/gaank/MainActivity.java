@@ -1,6 +1,7 @@
 package guru.voidmain.gaank;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +19,9 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import guru.voidmain.gaank.api.GankApiFactory;
+import guru.voidmain.gaank.api.service.GankDataService;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -44,6 +49,14 @@ public class MainActivity extends AppCompatActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        // TODO covert to RxAndroid
+        new Thread(new Runnable() {
+            public void run() {
+                GankDataService service = GankApiFactory.getInstance().createDataService();
+                Log.e("GANK_DATA_SERVICE", service.getGankData("iOS", 20, 1).toString());
+            }
+        }).start();
     }
 
     @Override
