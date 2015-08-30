@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gank_type_all">all</string>
+    <string-array name="gank_type_array">
+        <item>全部</item>
+        <item>福利</item>
+        <item>Android</item>
+        <item>iOS</item>
+        <item>休息视频</item>
+        <item>拓展资源</item>
+        <item>前端</item>
+    </string-array>
+</resources>
