@@ -3,6 +3,7 @@ package guru.voidmain.gaank.api.service;
 import guru.voidmain.gaank.model.response.GankCategoryResponse;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import rx.Observable;
 
 /**
  * 获取分类数据
@@ -10,7 +11,7 @@ import retrofit.http.Path;
  */
 public interface GankDataService {
     @GET("/api/data/{category}/{pageSize}/{pageNumber}")
-    GankCategoryResponse getGankData(@Path("category") String category,
-                                     @Path("pageSize") int pageSize,
-                                     @Path("pageNumber") int pageNumber);
+    Observable<GankCategoryResponse> getGankData(@Path("category") String category,
+                                                 @Path("pageSize") int pageSize,
+                                                 @Path("pageNumber") int pageNumber);
 }

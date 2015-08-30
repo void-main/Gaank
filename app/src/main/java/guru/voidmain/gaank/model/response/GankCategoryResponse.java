@@ -9,8 +9,8 @@ import guru.voidmain.gaank.model.GankItem;
 /**
  * Created by voidmain on 8/29/15.
  */
-public class GankCategoryResponse {
-    List<GankItem> results;
+public class GankCategoryResponse extends GankBaseResponse {
+    public List<GankItem> results;
 
     @Override
     public String toString() {

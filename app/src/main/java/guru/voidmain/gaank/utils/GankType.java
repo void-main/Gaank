@@ -36,4 +36,13 @@ public class GankType {
         }
     }
 
+    public static int getGankTypeWithString(String gankType) {
+        String[] gankTypes = getGankTypes(null);
+        for (int idx = 0; idx < gankTypes.length; idx ++) {
+            if (gankTypes[idx].equals(gankType)) return idx;
+        }
+
+        return -1;
+    }
+
 }

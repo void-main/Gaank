@@ -4,6 +4,7 @@ import guru.voidmain.gaank.model.response.GankCategoryResponse;
 import guru.voidmain.gaank.model.response.GankDayResponse;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import rx.Observable;
 
 /**
  * 获取每日数据
@@ -11,7 +12,7 @@ import retrofit.http.Path;
  */
 public interface GankDayDataService {
     @GET("/api/day/{year}/{month}/{day}")
-    GankDayResponse getGankDayData(@Path("year") int year,
-                                   @Path("month") int month,
-                                   @Path("day") int day);
+    Observable<GankDayResponse> getGankDayData(@Path("year") int year,
+                                               @Path("month") int month,
+                                               @Path("day") int day);
 }
